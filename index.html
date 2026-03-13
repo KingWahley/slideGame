@@ -41,15 +41,6 @@
         <img src="" alt="" />
       </div>
     </div>
-    <script>
-      self.addEventListener("install", (event) => {
-        console.log("Service Worker Installed");
-      });
-
-      self.addEventListener("fetch", (event) => {
-        event.respondWith(fetch(event.request));
-      });
-    </script>
     <script src="script.js"></script>
   </body>
 </html>

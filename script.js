@@ -7,6 +7,16 @@ const uploadInput = document.getElementById("upload-image");
 const resetImageButton = document.getElementById("reset-image");
 const originalImage = document.querySelector(".original-image img");
 
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("./sw.js")
+      .catch((error) =>
+        console.error("Service worker registration failed:", error)
+      );
+  });
+}
+
 let currentElement = "";
 let movesCount,
   imagesArr = [];
