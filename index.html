@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
+    <link rel="manifest" href="manifest.json">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -20,7 +21,9 @@
       <div class="controls-card">
         <div class="controls-text">
           <h2>Choose a Picture</h2>
-          <p>Upload any photo. The puzzle will auto-fit landscape or portrait.</p>
+          <p>
+            Upload any photo. The puzzle will auto-fit landscape or portrait.
+          </p>
         </div>
         <div class="controls-actions">
           <label class="upload">
@@ -38,6 +41,15 @@
         <img src="" alt="" />
       </div>
     </div>
+    <script>
+      self.addEventListener("install", (event) => {
+        console.log("Service Worker Installed");
+      });
+
+      self.addEventListener("fetch", (event) => {
+        event.respondWith(fetch(event.request));
+      });
+    </script>
     <script src="script.js"></script>
   </body>
 </html>
